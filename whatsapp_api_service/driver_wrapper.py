@@ -48,14 +48,15 @@ def init_driver(client_id):
     """
 
     # Create profile directory if it does not exist
-    profile_path = get_profile_dir(client_id)
-    if not os.path.exists(profile_path):
-        os.makedirs(profile_path)
+    #profile_path = get_profile_dir(client_id)
+    #if not os.path.exists(profile_path):
+    #    os.makedirs(profile_path)
 
     # Create a whatsapidriver object
-    print("profile_path", profile_path)
+    #print("profile_path", profile_path)
     return WhatsAPIDriver(
-        profile=profile_path,
+        username=client_id,
+        #profile=profile_path,
         extra_params={"service_log_path": "/tmp/geckodriver.log"},
     )
 

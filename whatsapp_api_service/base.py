@@ -1,6 +1,7 @@
 import traceback
 import json
 from flask import Flask, render_template, g, abort, request, jsonify
+from selenium.common.exceptions import WebDriverException
 from werkzeug.exceptions import HTTPException
 from collections import defaultdict
 from functools import wraps
@@ -75,6 +76,7 @@ def uses_driver(f):
             user = db.get_user_by_token(token)
             if not user:
                 abort(401, "Must be logged in")
+                # return jsonify(error=True, message="Must be logged in")
 
             g.user = user
             with semaphores[user["id"]]:
@@ -104,6 +106,18 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
+
+@app.route("/", methods=["GET", "POST"])
+def root_endpoint():
+    token = None
+    if request.method == "POST" and request.form["action"] == "generate_access_token":
+        token = str(uuid4())
+        db.create_user(request.form["profile_name"], token)
+
+    return render_template(
+        "index.html",
+        token=token,
+    )
 
 @app.route("/admin", methods=["GET", "POST"])
 def admin_endpoint():

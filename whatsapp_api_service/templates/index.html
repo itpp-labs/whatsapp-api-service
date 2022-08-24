@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+      {% if token %}
+      <h1>Token: {{ token }}</h1>
+      {% else %}
+
+      <form method="POST">
+          <input type="hidden" name="action" value="generate_access_token" />
+          <label for="profile_name">Email:</label><br>
+          <input name="profile_name" type="text" />
+          <input type="submit" value="Generate token" />
+      </form>
+      {% endif %}
+  </body>
+</html>
