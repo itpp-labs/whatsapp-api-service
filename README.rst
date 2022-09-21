@@ -13,7 +13,15 @@ Known issues
 Configuration
 -------------
 
-1. Create whatsapp account. It will be used as a bot
+0. Create whatsapp account. It will be used as a bot
+
+1. Clone this repo and dependencies:
+
+.. code-block:: sh
+
+    git clone https://github.com/itpp-labs/whatsapp-api.git
+    git clone https://github.com/itpp-labs/whatsapp-api-service.git
+    cd whatsapp-api-service
 
 2. Run:
 
