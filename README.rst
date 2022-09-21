@@ -29,8 +29,13 @@ Configuration
 
    docker-compose up -d firefox
 
-3. Using VNC client connect to 127.0.0.1:5900. Password is ``secret``
-   Note, if you are running this on remote machine, consider to make SSH tunnel to that machine
+3. Using VNC client connect to 127.0.0.1:5900. Password is ``secret``.
+   Note, if you are running this on remote machine, consider to make SSH tunnel to that machine:
+ 
+.. code-block:: sh
+
+   ssh -L 5900:127.0.0.1:5900 user@your_server
+
 
 4. In VNC client run:
 
