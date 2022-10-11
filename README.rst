@@ -56,3 +56,9 @@ Configuration
 11. Press "Generate access token"
 
 12. Use this access token to access it's api
+
+13. In VNC client run to disable screen saver:
+
+   echo "xset -dpms s off" >> ~/.xinitrc
+ 
+
