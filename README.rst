@@ -59,6 +59,6 @@ Configuration
 
 13. In VNC client run to disable screen saver:
 
-   echo "xset -dpms s off" >> ~/.xinitrc
+   echo "xset -dpms s off" >> ~/.fluxbox/startup
  
 
